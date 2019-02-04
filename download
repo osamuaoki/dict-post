@@ -1,0 +1,35 @@
+#!/bin/sh -e
+echo "Download Japanese ZIP"
+wget -v https://www.post.japanpost.jp/zipcode/dl/kogaki/zip/ken_all.zip
+unzip ken_all.zip
+nkf KEN_ALL.CSV >post.csv
+rm -f KEN_ALL.CSV ken_all.zip
+
+#echo "Download Eki data"
+#wget -v http://www5a.biglobe.ne.jp/~harako/data/sta_list.lzh
+#lha -x sta_list.lzh
+#nkf sta_list.txt >station.tsv
+#rm -f sta_list.lzh sta_list.txt
+
+#
+#echo "Download Bunkazai data 1"
+#wget -v http://www5a.biglobe.ne.jp/~harako/data/monument1.lzh
+#lha -x monument1.lzh
+#nkf monument1.csv |sponge monument1.csv
+#
+#echo "Download Bunkazai data 2"
+#wget -v http://www5a.biglobe.ne.jp/~harako/data/monument2.lzh
+#lha -x monument2.lzh
+#nkf monument2.csv |sponge monument2.csv
+#rm -f monument1.lzh monument2.lzh
+#
+
+echo
+echo "Download Japanese Population data by clicking following URL interactively"
+echo
+echo "https://www.e-stat.go.jp/stat-search/file-download?statInfId=000031594311&fileKind=0"
+echo
+echo "Trim XSL to population, area, density"
+echo
+echo "Save as CSV (quote text, not as shown) to kokusei.csv"
+echo

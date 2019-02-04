@@ -1,0 +1,9 @@
+#!/usr/bin/python3
+"""
+process -- process post.csv and kokusei.csv
+"""
+import csv
+with open('post.csv', newline='') as csvfile:
+    spamreader = csv.reader(csvfile)
+    for row in spamreader:
+        print('\n'.join(row))
