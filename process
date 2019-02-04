@@ -1,9 +1,12 @@
 #!/usr/bin/python3
+# vim:se tw=79 sts=4 ts=4 et ai:
 """
 process -- process post.csv and kokusei.csv
 """
 import csv
 with open('post.csv', newline='') as csvfile:
     spamreader = csv.reader(csvfile)
-    for row in spamreader:
-        print('\n'.join(row))
+    for item in spamreader:
+        for i, x in enumerate(item, 1):
+            print(str(i) + " = " + x + ", ", end="")
+        print("")
